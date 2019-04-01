@@ -5,7 +5,7 @@ CREATE TABLE zzSummary (
 
 
 CREATE TABLE Admin (
-	Admin_ID		INTEGER,
+	Admin_ID INTEGER,
 	PRIMARY KEY (Admin_ID)
 );
 CREATE TABLE Users (
