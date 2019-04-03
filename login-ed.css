@@ -85,4 +85,12 @@ html, body {
     text-align: center;
 }
 
+.invisible {
+    background: transparent;
+    border: none !important;
+}
 
+.status {
+    margin-left: auto;
+    margin-right: auto;
+}
