@@ -1,66 +1,65 @@
-<?php
-session_start();
+<? php
+echo '<!DOCTYPE html>';
+echo '<html>';
+echo '<head>';
+echo '<title> Sign Up </title>';
+echo '<link rel="stylesheet" type="text/css" href="css/style.css">';
+echo '</head>';
+echo '<body>';
+echo '<header> Sign Up </header>';
+echo '<div class="container">';
+echo '<form role="form">';
+echo '<!-- Text field -->';
+echo '<div class =" form-group ">';
+echo '<label for=" inputEmail ">Email</ label >';
+echo '<input type ="email" class =" form-control " id=" inputEmail ">';
+echo '</div >';
+echo '<div class="form-group">';
+echo '<label for="inputName">Display Name</label>';
+echo '<input type="text" class="form-control" id="inputName">';
+echo '</div>';
+echo '<div class =" form-group ">';
+echo '<label for=" inputPassword ">Password</ label >';
+echo '<input type ="password" class =" form-control " id=" inputPassword ">';
+echo '</div >';
+echo '<div class =" form-group ">';
+echo '<label for=" reenterPassword ">Re-enter Password</ label >';
+echo '<input type ="password" class =" form-control " id=" reenterPassword ">';
+echo '</div >';
+echo '<div class="form-group">';
+echo '<label for="inputFName">First Name</label>';
+echo '<input type="text" class="form-control" id="inputFName">';
+echo '</div>';
+echo '<div class="form-group">';
+echo '<label for="inputLName">Last Name</label>';
+echo '<input type="text" class="form-control" id="inputLName">';
+echo '</div>';
+echo '<div class="form-group">';
+echo '<label for="inputPhone">Phone Number</label>';
+echo '<input type="text" class="form-control" id="inputPhone">';
+echo '</div>';
+echo '<div class="form-group">';
+echo '<label for="inputGender">Gender (M/F)</label>';
+echo '<input type="text" class="form-control" id="inputGender" placeholder="M/F">';
+echo '</div>';
+echo '<div class="form-group">';
+echo '<label for="inputAddress">Address</label>';
+echo '<input type="text" class="form-control" id="inputAddress">';
+echo '</div>';
+echo '<div class="form-group">';
+echo '<label for="inputCountry">Country</label>';
+echo '<input type="text" class="form-control" id="inputCountry">';
+echo '</div>';
+echo '<div class="form-group">';
+echo '<label for="inputBday">Birthday</label>';
+echo '<input type="text" class="form-control" id="inputBday" placeholder="DDMMYY">';
+echo '</div>';
+echo '';
+echo '<div class="clearfix">';
+echo '<button type="next" class="nextbtn">Next</button>';
+echo '</div>';
+echo '</form>';
+echo '</div>';
+echo '</body>';
+echo '</html>';
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> Sign Up </title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
-    <body>
-        <header> Sign Up </header>
-        <div class="container">
-        <form role="form">
-            <!-- Text field -->
-            <div class =" form-group ">
-                <label for=" inputEmail ">Email</ label >
-                <input type ="email" class =" form-control " id=" inputEmail ">
-            </div >
-            <div class="form-group">
-                <label for="inputName">Display Name</label>
-                <input type="text" class="form-control" id="inputName">
-            </div>
-            <div class =" form-group ">
-                <label for=" inputPassword ">Password</ label >
-                <input type ="password" class =" form-control " id=" inputPassword ">
-            </div >
-            <div class =" form-group ">
-                <label for=" reenterPassword ">Re-enter Password</ label >
-                <input type ="password" class =" form-control " id=" reenterPassword ">
-            </div >
-            <div class="form-group">
-                <label for="inputFName">First Name</label>
-                <input type="text" class="form-control" id="inputFName">
-            </div>
-            <div class="form-group">
-                <label for="inputLName">Last Name</label>
-                <input type="text" class="form-control" id="inputLName">
-            </div>
-            <div class="form-group">
-                <label for="inputPhone">Phone Number</label>
-                <input type="text" class="form-control" id="inputPhone">
-            </div>
-            <div class="form-group">
-                <label for="inputGender">Gender (M/F)</label>
-                <input type="text" class="form-control" id="inputGender" placeholder="M/F">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">Address</label>
-                <input type="text" class="form-control" id="inputAddress">
-            </div>
-            <div class="form-group">
-                <label for="inputCountry">Country</label>
-                <input type="text" class="form-control" id="inputCountry">
-            </div>
-            <div class="form-group">
-                <label for="inputBday">Birthday</label>
-                <input type="text" class="form-control" id="inputBday" placeholder="DDMMYY">
-            </div>
-            
-            <div class="clearfix">
-                <button type="next" class="nextbtn">Next</button>
-            </div>
-        </form>
-        </div>
-    </body>
-</html>

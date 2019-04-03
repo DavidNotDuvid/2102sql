@@ -1,60 +1,61 @@
-<?php
-session_start();
+<? php
+echo '<!DOCTYPE html>';
+echo '<html lang="en">';
+echo '';
+echo '<head>';
+echo '<title> Profile </title>';
+echo '<link rel="stylesheet" type="text/css" href="css/updateprofile.css">';
+echo '</head>';
+echo '';
+echo '<body>';
+echo '<div class="topnav">';
+echo '<a class="active" href="#home">Home</a>';
+echo '<a href="#news">Profile</a>';
+echo '<a href="#contact">Pets</a>';
+echo '<a href="#about">History</a>';
+echo '<form align="right" name="form1" method="post" action="log_out.php">';
+echo '<label class="logoutLblPos">';
+echo '<input name="submit2" type="submit" id="submit2" value="Log Out">';
+echo '</label>';
+echo '</form>';
+echo '</div>';
+echo '';
+echo '<header>Update Profile</header>';
+echo '';
+echo '<h1>';
+echo '<div class="container">';
+echo '<form role="form">';
+echo '<!-- Text field -->';
+echo '<div class =" form-group ">';
+echo '<label for=" inputEmail ">Email</ label >';
+echo '<input type ="email" class =" form-control " id=" inputEmail ">';
+echo '</div >';
+echo '';
+echo '<div class="form-group">';
+echo '<label for="inputPhone">Phone Number</label>';
+echo '<input type="text" class="form-control" id="inputPhone">';
+echo '</div>';
+echo '';
+echo '<div class="form-group">';
+echo '<label for="inputAddress">Address</label>';
+echo '<input type="text" class="form-control" id="inputAddress">';
+echo '</div>';
+echo '<div class="form-group">';
+echo '<label for="inputCountry">Country</label>';
+echo '<input type="text" class="form-control" id="inputCountry">';
+echo '</div>';
+echo '</form>';
+echo '</div>';
+echo '</h1>';
+echo '';
+echo '<h2>';
+echo '<div class="clearfix">';
+echo '<button type="next" class="Signupbtn">Update</button>';
+echo '</div>';
+echo '</h2>';
+echo '</body>';
+echo '</html>';
+echo '';
+echo '';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-    
-    <head>
-        <title> Profile </title>
-        <link rel="stylesheet" type="text/css" href="css/updateprofile.css">
-    </head>
-    
-    <body>
-            <div class="topnav">
-                <a class="active" href="#home">Home</a>
-                <a href="#news">Profile</a>
-                <a href="#contact">Pets</a>
-                <a href="#about">History</a>
-                <form align="right" name="form1" method="post" action="log_out.php">
-                    <label class="logoutLblPos">
-                        <input name="submit2" type="submit" id="submit2" value="Log Out">
-                    </label>
-                </form>
-        </div>
-
-        <header>Update Profile</header>
-        
-        <h1>
-            <div class="container">
-                <form role="form">
-                    <!-- Text field -->
-                    <div class =" form-group ">
-                        <label for=" inputEmail ">Email</ label >
-                        <input type ="email" class =" form-control " id=" inputEmail ">
-                    </div >
-                    
-                    <div class="form-group">
-                        <label for="inputPhone">Phone Number</label>
-                        <input type="text" class="form-control" id="inputPhone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="inputAddress">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputCountry">Country</label>
-                        <input type="text" class="form-control" id="inputCountry">
-                    </div>
-                </form>
-            </div>
-        </h1>
-        
-        <h2>
-            <div class="clearfix">
-                <button type="next" class="Signupbtn">Update</button>
-            </div>
-        </h2>
-    </body>
-    
     
