@@ -125,9 +125,13 @@ END
 create function update_password(username_in char(15), password_in char(15)) as 
 UPDATE Users SET password = password_in WHERE username = username_in;
 
+create function update_info(username_in char(15), phone_number_in char varying, email_in char varying, address_in char varying, location_in char varying) as 
+UPDATE Users set phone_number = phone_number_in not null, email = email_in not null, address = address_in not null, location_in not null)
+where username = username_in;
+
 --PetOwner related functions
 	
-create function new_pet(pet_type_in Integer, pet_name_in Integer,oid_in Integer, Out pid_out integer) Returns integer
+create function new_pet(pet_type_in Integer, pet_name_in Integer,oid_in Integer, pid_out integer) Returns integer
 As
 INSERT into pets(pet_name,pet_type,oid) Values( pet_name_in, pet_type_in, oid_in);
 --
@@ -142,7 +146,7 @@ INSERT into Table PetReview(pid, cid, review) Values (pid_in, cid_in,review_in);
 
 --Service related function
 
-create function new_service(oid_in INTEGER, minbid_in INTEGER, fromdate_in DATE,  todate_in DATE, OUT ) RETURNS integer
+create function new_service(oid_in INTEGER, minbid_in INTEGER, fromdate_in DATE,  todate_in DATE) RETURNS integer
 AS 
 	INSERT into Service(oid, minbid, current_bidder, fromdate, todate, last_update, availability) values (oid_in, minbid_in, null, fromdate_in, 
 	todate_in, timestamp, true);
@@ -150,7 +154,11 @@ AS
 	
 create function bid (sid,bid_in, pig)
 as
-UPDATE Service set s.minbid = bid_in, s.current_doggo = pid where s.sid = sid and bid_in > s.minbid and s.availability = true ;
+UPDATE Service set s.minbid = bid_in, s.current_doggo = pid where s.sid = sid and bid_in > s.minbid and s.availability = true;
+
+create function current(pid_in)
+as
+SELECT sid from Service where pid = pid_in;
 
 --			
 create function publish(sid)
@@ -162,17 +170,25 @@ as
 	set s.availability = false
 	where s.sid = sid and s.availability = true;
 
-create function accepts(cid INTEGER, sid INTEGER);
 
-
+--
 create FUNCTION add_history(cid_in INTEGER, sid_in INTEGER, pid_in INTEGER) as 
 	INSERT into History(cid, sid, pid) values (cid_in, sid_in, pid_);
-	
+--	
 create FUNCTION check_histroy(check_id INTEGER) as
 select cid, sid, pid
 from History
 where (sid = check_id or sid = check_id or pid = check_id);
 	
+create function accepts(cid INTEGER, sid INTEGER)
+as update TABLE Service S 
+set s.availability = false
+where S.sid = sid and S.cid=cid;
+
+create function update_service(sid INTEGER, fromdate_in DATE,  todate_in DATE)
+as update Table Service S
+set s.fromdate = firstname_in and s.todate = todate_in
+where s.sid = sid);
 
 
 create function toggle (user_type char(1), email_in character varying) 
