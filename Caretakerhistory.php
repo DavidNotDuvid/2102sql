@@ -1,0 +1,37 @@
+<? php
+echo '<!DOCTYPE html>';
+echo '<html lang="en">';
+echo '';
+echo '<head>';
+echo '<title> History </title>';
+echo '<link rel="stylesheet" type="text/css" href="css/history.css">';
+echo '</head>';
+echo '';
+echo '<body>';
+echo '<div class="topnav">';
+echo '<a class="active" href="#home">Home</a>';
+echo '<a href="#news">Profile</a>';
+echo '<a href="#contact">Services</a>';
+echo '<a href="#about">History</a>';
+echo '<form align="right" name="form1" method="post" action="log_out.php">';
+echo '<label class="logoutLblPos">';
+echo '<input name="submit2" type="submit" id="submit2" value="Log Out">';
+echo '</label>';
+echo '</form>';
+echo '</div>';
+echo '';
+echo '<header>History</header>';
+echo '';
+echo '<h1> Pet A </h1>';
+echo '<p> Pet info <!-- php -input pet info--> </p>';
+echo '<div class="clearfix">';
+echo '<button type="next" class="Leavereviewbtn">Leave Review</button>';
+echo '</div>';
+echo '';
+echo '<h2> Pet B </h2>';
+echo '<p> Pet info <!-- php -input pet info--> </p>';
+echo '';
+echo '</body>';
+echo '</html>';
+echo '';
+?>    
