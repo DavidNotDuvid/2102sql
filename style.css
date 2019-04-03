@@ -1,0 +1,41 @@
+html, body {
+    height: 100%
+}
+body {
+    font-family: Poppins-Regular;
+    font-size: 15pt;
+    margin: 0px;
+    padding: 0px;
+}
+
+* {box-sizing: border-box}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+header {
+    font-family: arial, sans-serif;
+    font-size: 20pt;
+    text-align:center;
+}
+
+button {
+    width: 150px;
+    margin: 0 auto;
+}
+submission {
+  text-align: center;
+  }
+
+
