@@ -1,37 +1,40 @@
 
+
 CREATE TABLE Users (
-	UserID AS 'UID' + RIGHT('00000000' + CAST(ID AS VARCHAR(8)), 8) PERSISTED
+	UserID SERIAL,
 	display_name char(15) NOT NULL,
-	password char(15) NOT NULL
+	password char(15) NOT null,
 	first_name char(45) NOT NULL,
    	last_name char(45) NOT NULL,
-    email char(100) UNIQUE NOT NULL PRIMARY,
-	gender char(1) #
-	phone_number UNIQUE character varying PRIMARY,
+    email char(100) UNIQUE not null,
+	gender char(1),
+	phone_number INTEGER UNIQUE not null,
     address INTEGER NOT NULL,
 	country char(1000),
 	birth_date date,
+	primary key(email)
 );
 
 ##IMPLEMENT ISA HIERACHY HERE
 
 CREATE TABLE Owner (
-	username char(15)
-	oid INTEGER,
-	FOREIGN KEY (pid) REFERENCES Pets
-	FOREIGN key (email)
+	username char(15),
+	oid SERIAL primary key,
+	email char varying,
+	foreign key (username) references Users,
+	FOREIGN key (email) references Users
 );
 
 CREATE TABLE CareTaker(
-	cid INTEGER,
-	email char(100)
-	review VAR(1000)??
-	PRIMARY KEY (cid),
-	foreign key (Users)
+	username char(15),
+	cid SERIAL,
+	email char(100),
+	foreign key (username) references Users,
+	FOREIGN key (email) references Users);
 
 CREATE TABLE Pets(
-	pid INTEGER,
-	pet_name char(100)
+	pid SERIAL,
+	pet_name char(100),
 	pet_type char(100),
 	oid INTEGER NOT NULL,
 	PRIMARY KEY (pid),
@@ -40,14 +43,14 @@ CREATE TABLE Pets(
 
 
 CREATE TABLE Service (
-	sid AS 'SID' + RIGHT('00000000' + CAST(ID AS VARCHAR(8)), 8) PERSISTED,
+	sid serial,
 	oid INTEGER,
 	minbid INTEGER CHECK(MinBid > 0),
 	current_doggo integer,
 	fromdate DATE, 
 	todate DATE CHECK(todate > fromdate),
-	last_update timestamp without time zone DEFAULT now() NOT NULL
-	availability boolean 
+	last_update timestamp without time zone DEFAULT now() NOT null,
+	availability boolean, 
 	PRIMARY KEY (sid),
 	FOREIGN KEY (oid) REFERENCES Owners,
 );
@@ -62,14 +65,14 @@ CREATE TABLE History(
 );
 
 Create Table CareTakerReviews(
-    crid AS 'CRD' + RIGHT('00000000' + CAST(ID AS VARCHAR(8)), 8) PERSISTED,
+    crid Serial,
 	cid integer FOREIGN key (cid) CareTaker,
 	rid integer FOREIGN key (oid) Owner,
 	review character varying
 );
 
 create Table PetReview(
-	prid AS 'PRID' + RIGHT('00000000' + CAST(ID AS VARCHAR(8)), 8) PERSISTED,
+	prid SERIAL,
 	pid Integer,
 	cid integer,
 	review character varying,
