@@ -61,3 +61,21 @@ CREATE TABLE History(
 	FOREIGN KEY (sid) REFERENCES Service(sid),
 	FOREIGN KEY (cid) REFERENCES CareTaker(cid),
 );
+	
+Create Table CareTakerReviews(
+    	crid INTEGER AUTO-INCREMENT,
+	review TEXT
+	cid integer,
+	rid integer,
+	FOREIGN KEY (cid) CareTaker(cid),
+	 FOREIGN KEY (oid) owner(oid)
+);
+
+create Table PetReview(
+	prid INTEGER AUTO-INCREMENT,
+	pid Integer,
+	cid integer,
+	review TEXT
+	FOREIGN KEY (pid) REFERENCES Pets(pid),
+	FOREIGN KEY (cid) REFERENCES CareTaker(cid)
+);
