@@ -11,25 +11,25 @@ CREATE TABLE Users (
     address INTEGER NOT NULL,
 	country char(1000),
 	birth_date date,
-	primary key(email)
+	PRIMARY KEY(email)
 );
 
 ##IMPLEMENT ISA HIERACHY HERE
 
 CREATE TABLE Owner (
 	username char(15),
-	oid SERIAL primary key,
+	oid SERIAL PRIMARY KEY,
 	email char varying,
-	foreign key (username) references Users,
-	FOREIGN key (email) references Users
+	FOREIGN KEY (username) references Users(username),
+	FOREIGN KEY (email) references Users(email)
 );
 
 CREATE TABLE CareTaker(
 	username char(15),
 	cid SERIAL,
 	email char(100),
-	foreign key (username) references Users,
-	FOREIGN key (email) references Users);
+	FOREIGN KEY (username) references Users(username),
+	FOREIGN KEY (email) references Users(email);
 
 CREATE TABLE Pets(
 	pid SERIAL,
@@ -37,7 +37,7 @@ CREATE TABLE Pets(
 	pet_type char(100),
 	oid INTEGER NOT NULL,
 	PRIMARY KEY (pid),
-	FOREIGN KEY (oid) REFERENCES Owner
+	FOREIGN KEY (oid) REFERENCES Owner(oid)
 );
 
 
@@ -51,30 +51,30 @@ CREATE TABLE Service (
 	last_update timestamp without time zone DEFAULT now() NOT null,
 	availability boolean, 
 	PRIMARY KEY (sid),
-	FOREIGN KEY (oid) REFERENCES Owners,
+	FOREIGN KEY (oid) REFERENCES Owners(oid),
 );
 
 CREATE TABLE History(
 	cid INTEGER,
 	sid INTEGER,
 	pid INTEGER,
-	FOREIGN KEY (pid) REFERENCES Service,
-	FOREIGN KEY (sid) REFERENCES Service,
-	FOREIGN KEY (cid) REFERENCES CareTaker,
+	FOREIGN KEY (pid) REFERENCES Service(pid),
+	FOREIGN KEY (sid) REFERENCES Service(sid),
+	FOREIGN KEY (cid) REFERENCES CareTaker(cid),
 );
 
 Create Table CareTakerReviews(
     crid Serial,
-	cid integer FOREIGN key (cid) CareTaker,
-	rid integer FOREIGN key (oid) Owner,
-	review character varying
+	cid integer FOREIGN KEY (cid) CareTaker(cid),
+	rid integer FOREIGN KEY (oid) owner(oid),
+	review VARCHAR
 );
 
 create Table PetReview(
 	prid SERIAL,
 	pid Integer,
 	cid integer,
-	review character varying,
-	foreign key (pid) REFERENCES Pets,
-	foreign key (cid) REFERENCES CareTaker
+	review VARCHAR,
+	FOREIGN KEY (pid) REFERENCES Pets(pid),
+	FOREIGN KEY (cid) REFERENCES CareTaker(cid)
 );
