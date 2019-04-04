@@ -1,4 +1,3 @@
-
 CREATE TABLE Users (
 	UserID SERIAL,
 	display_name char(15) NOT NULL,
@@ -19,7 +18,7 @@ CREATE TABLE Users (
 CREATE TABLE Owner (
 	username char(15),
 	oid SERIAL PRIMARY KEY,
-	email char varying,
+	email VARCHAR,
 	FOREIGN KEY (username) references Users(username),
 	FOREIGN KEY (email) references Users(email)
 );
@@ -61,20 +60,4 @@ CREATE TABLE History(
 	FOREIGN KEY (pid) REFERENCES Service(pid),
 	FOREIGN KEY (sid) REFERENCES Service(sid),
 	FOREIGN KEY (cid) REFERENCES CareTaker(cid),
-);
-
-Create Table CareTakerReviews(
-    crid Serial,
-	cid integer FOREIGN KEY (cid) CareTaker(cid),
-	rid integer FOREIGN KEY (oid) owner(oid),
-	review VARCHAR
-);
-
-create Table PetReview(
-	prid SERIAL,
-	pid Integer,
-	cid integer,
-	review VARCHAR,
-	FOREIGN KEY (pid) REFERENCES Pets(pid),
-	FOREIGN KEY (cid) REFERENCES CareTaker(cid)
 );
