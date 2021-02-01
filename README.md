@@ -1,3 +1,1 @@
-# School project
-# Do not bother unless you have valuable input.
-# Thanks
+#Moved to https://github.com/waisekoh/FinalVersion-PetCare
